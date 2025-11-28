@@ -29,3 +29,12 @@ CREATE TABLE IF NOT EXISTS daily_stats (
     total_returned INTEGER DEFAULT 0,
     top_location VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS admins (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    role VARCHAR(20) DEFAULT 'admin' CHECK (role = 'admin'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

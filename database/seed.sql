@@ -10,3 +10,9 @@ INSERT INTO items (item_name, description, location_found, status, date_reported
 INSERT INTO claims (item_id, claimant_name, student_reg_no, status) VALUES
 (2, 'John Doe', 'REG-2023-001', 'Pending Approval'),
 (3, 'Jane Smith', 'REG-2023-002', 'Approved');
+
+-- Insert sample admin
+-- Note: In a real application, the password should be hashed (e.g., bcrypt).
+-- Here we are inserting a dummy hash for 'admin123'.
+INSERT INTO admins (username, password_hash, email, role) VALUES
+('admin', 'hashed_secret_password_123', 'admin@kabarak.ac.ke', 'admin');
