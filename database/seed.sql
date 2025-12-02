@@ -14,5 +14,5 @@ INSERT INTO claims (item_id, claimant_name, student_reg_no, status) VALUES
 -- Insert sample admin
 -- Note: In a real application, the password should be hashed (e.g., bcrypt).
 -- Here we are inserting a dummy hash for 'admin123'.
-INSERT INTO admins (username, password_hash, email, role) VALUES
+INSERT INTO admins (username, password, email, role) VALUES
 ('admin', 'hashed_secret_password_123', 'admin@kabarak.ac.ke', 'admin');
