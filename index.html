@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kabarak Lost & Found</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="index.css">
+
+  <style>
+    /* Admin section */
+    .admin-box {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      width: 170px;
+      font-size: 13px;
+    }
+
+    .admin-box h4 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .admin-box a {
+      display: block;
+      padding: 6px;
+      margin-top: 6px;
+      background: #8b0000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .admin-box a:hover {
+      background: #6f0000;
+    }
+  </style>
+</head>
+
+<body>
+<header class="top-header">
+  <div class="header-content">
+    <div class="logo-area">
+      <img src="img/logo.jfif" alt="Kabarak Logo">
+      <h2>Kabarak Lost & Found Portal</h2>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="card">
+    <h3>Welcome 👋</h3>
+    <p>Report or search lost items easily and securely.</p>
+  </div>
+
+  <a href="report.html"><i data-lucide="alert-triangle"></i> Report Lost Item</a> 
+   <a href="reported.html"><i data-lucide="package-check"></i> Reported Item</a>
+  <a href="reportf.html"><i data-lucide="package-check"></i> Report Found Item</a>
+  <a href="search.html"><i data-lucide="search"></i> Search Items</a>
+  <a href="help.html"><i data-lucide="help-circle"></i> Help</a>
+
+</main>
+
+<!-- Admin section bottom-left -->
+<div class="admin-box">
+  <h4>Admin</h4>
+  <a href="admin.html">Open Admin Panel</a>
+</div>
+
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reported Missing Items</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body { 
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f8fafc;
+      color: #222;
+    }
+
+    header {
+      background: #8b0000;
+      color: #fff;
+      padding: 18px;
+      text-align: center;
+    }
+
+    header h2 {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 550px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .info-box {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-left: 5px solid #8b0000;
+      padding: 18px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 14.5px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .items-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    .item {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 15px;
+    }
+
+    .item img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      margin: 6px 0;
+      font-size: 14px;
+    }
+
+    i[data-lucide] {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-content">
+    <div class="logo-area">
+      <img src="img/logo.jfif" alt="Kabarak Logo">
+      <h2>Reported Missing Item</h2>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Info Message -->
+  <div class="info-box">
+    <p>
+      Browse through the items reported missing by students. Take your time to carefully check the list and images provided. If you recognize or have found any item displayed here, kindly report it through the appropriate channel.
+    </p>
+  </div>
+
+  <!-- Items Section -->
+  <div class="items-card">
+    <h3><i data-lucide="clipboard-list"></i> Missing Items</h3>
+    <div id="reportedItems"></div>
+  </div>
+
+</div>
+
+<script>
+  lucide.createIcons();
+
+  const container = document.getElementById("reportedItems");
+
+  // Get reported items from localStorage (from report.html)
+  const items = JSON.parse(localStorage.getItem("reportedMissingItems")) || [];
+
+  if (items.length === 0) {
+    container.innerHTML = "<p style='color:#777;'>No missing items have been reported yet.</p>";
+  } else {
+    items.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `
+        <img src="${item.image}" alt="Missing Item">
+        <p><strong>Item:</strong> ${item.name}</p>
+        <p><strong>Description:</strong> ${item.description}</p>
+      `;
+      container.appendChild(div);
+    });
+  }
+</script>
+
+</body>
+</html>

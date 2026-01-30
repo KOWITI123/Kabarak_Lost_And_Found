@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Lost Items</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="search.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-content centered-header">
+    <img src="img/logo.jfif" alt="Kabarak Logo" class="header-logo">
+    <h2>Search for an Item...</h2>
+  </div>
+</header>
+
+
+<main class="container">
+
+  <!-- Top message -->
+  <div class="card">
+    <h3><i data-lucide="info"></i> Welcome</h3>
+    <p>
+      Find your lost items here which were reported by the students.
+      If you can’t seem to find your item, make sure you leave a report with us.
+    </p>
+  </div>
+
+  <!-- Gallery of reported items -->
+  <div class="card">
+    <h3><i data-lucide="image"></i> Reported Found Items</h3>
+    <div id="items-container" class="items-container">
+      <!-- Images from Firebase will appear here -->
+    </div>
+  </div>
+
+</main>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+import { getStorage, ref as sRef, uploadString, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_BUCKET",
+  databaseURL: "YOUR_DB_URL",
+  appId: "YOUR_APP"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const storage = getStorage(app);
+
+const itemsContainer = document.getElementById("items-container");
+
+/* -------------------------------
+   1. Render items to the page
+-------------------------------- */
+function renderItem(item) {
+  const div = document.createElement("div");
+  div.className = "item-card";
+
+  div.innerHTML = `
+    <img src="${item.imageURL}" alt="${item.name}">
+    <p><strong>${item.name}</strong></p>
+    <p>${item.description}</p>
+  `;
+
+  itemsContainer.prepend(div);
+}
+
+/* -------------------------------
+   2. Load existing Firebase items
+-------------------------------- */
+onValue(ref(db, "found-items"), (snapshot) => {
+  itemsContainer.innerHTML = "";
+  const data = snapshot.val();
+  if (data) {
+    Object.values(data).forEach(renderItem);
+  } else {
+    itemsContainer.innerHTML = "<p>No items yet.</p>";
+  }
+});
+
+/* -------------------------------
+   3. Receive item from items.html
+-------------------------------- */
+const newItem = localStorage.getItem("newItem");
+
+if (newItem) {
+  const item = JSON.parse(newItem);
+
+  // Show immediately in UI (instant feedback)
+  renderItem({
+    name: item.name,
+    description: item.description,
+    imageURL: item.image
+  });
+
+  // Upload to Firebase storage
+  const imageRef = sRef(storage, `items/${Date.now()}.png`);
+
+  uploadString(imageRef, item.image, "data_url")
+    .then(() => getDownloadURL(imageRef))
+    .then((url) => {
+      // Save final permanent version
+      push(ref(db, "found-items"), {
+        name: item.name,
+        description: item.description,
+        imageURL: url
+      });
+
+      localStorage.removeItem("newItem");
+    });
+}
+</script>
+
+
+
+</body>
+</html>

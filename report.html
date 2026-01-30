@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Lost Item</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-content">
+    <div class="logo-area">
+      <img src="img/logo.jfif" alt="Kabarak Logo">
+      <h2>Report Lost Item</h2>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="info-box">
+    <p>
+      We’re sorry you lost something. Please fill in the details below as clearly as possible. 
+      Your report helps our team and other students assist in recovery. Thank you for helping keep the community honest and supportive.
+    </p>
+  </div>
+
+  <form class="form-card">
+    <label>Item Name</label>
+    <input type="text" placeholder="e.g. Student ID, Phone, Wallet" required>
+
+    <label>Description</label>
+    <textarea rows="4" placeholder="Describe the item, color, location, time lost..." required></textarea>
+
+    <label>Your Phone Number</label>
+    <input type="tel" placeholder="e.g. 07XXXXXXXX" required>
+  
+  <label>Upload an Image (optional)</label>
+  <input type="file" accept="image/*">
+  <small>You can upload a photo of the item to help identify it.</small>
+
+    <button type="submit">
+      <i data-lucide="send"></i>
+      Submit Lost Item
+    </button>
+  </form>
+
+</main>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

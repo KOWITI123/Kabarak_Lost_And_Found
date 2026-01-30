@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Access</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f8fafc;
+      color: #222;
+    }
+
+    /* Header */
+    header {
+      background: #8b0000;
+      color: #fff;
+      padding: 18px;
+      text-align: center;
+    }
+
+    header h2 {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 550px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    /* Info message */
+    .info-box {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-left: 5px solid #8b0000;
+      padding: 18px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 14.5px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Form */
+    .form-card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #8b0000;
+      box-shadow: 0 0 0 3px rgba(139,0,0,0.08);
+    }
+
+    /* Buttons */
+    button, a.admin-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      background: #8b0000;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.2s ease;
+      text-decoration: none;
+    }
+
+    button:hover,
+    a.admin-btn:hover {
+      background: #6f0000;
+    }
+
+    i[data-lucide] {
+      width: 18px;
+      height: 18px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Admin Access</h2>
+</header>
+
+<div class="container">
+
+  <!-- Info -->
+  <div class="info-box">
+    <p>This section is restricted. Only authorized administrators can access system controls.</p>
+  </div>
+
+  <!-- Login Form -->
+  <div class="form-card" id="loginBox">
+    <label for="password">Admin Password</label>
+    <input type="password" id="password" placeholder="Enter admin password">
+
+    <button onclick="login()">
+      <i data-lucide="lock"></i>
+      Login
+    </button>
+
+    <p id="error" style="color:red;font-size:13px;margin-top:10px;"></p>
+  </div>
+
+  <!-- Admin Panel (hidden until login) -->
+  <div class="form-card hidden" id="adminPanel">
+    <h3>Admin Panel</h3>
+
+    <a href="config.html" class="admin-btn">
+      <i data-lucide="settings"></i>
+      System Config
+    </a>
+
+    <a href="items.html" class="admin-btn">
+      <i data-lucide="database"></i>
+      Item Input
+    </a>
+  </div>
+
+</div>
+
+<script>
+  lucide.createIcons();
+
+  function login() {
+    const password = document.getElementById("password").value;
+    const correctPassword = "admin123"; // 🔐 Change this to your own password
+
+    if (password === correctPassword) {
+      document.getElementById("loginBox").classList.add("hidden");
+      document.getElementById("adminPanel").classList.remove("hidden");
+    } else {
+      document.getElementById("error").textContent = "Incorrect password. Access denied.";
+    }
+  }
+</script>
+
+</body>
+</html>
+
+

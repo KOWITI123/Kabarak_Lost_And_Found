@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Help - Kabarak Lost & Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #f8fafc;
+    color: #222;
+  }
+
+  /* Header now matches report pages */
+  .top-header {
+    background: #8b0000;
+    color: #fff;
+    padding: 18px;
+  }
+
+  .header-content {
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .logo-area img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .logo-area h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+
+  /* Cards */
+  .card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    margin-bottom: 25px;
+  }
+
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #111;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card p {
+    margin: 6px 0;
+    font-size: 14.5px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Lucide icons */
+  i[data-lucide] {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .container {
+      margin-top: 25px;
+    }
+
+    .logo-area h2 {
+      font-size: 16px;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+<header class="top-header">
+  <div class="header-content centered-header">
+    <img src="img/logo.jfif" alt="Kabarak Logo" class="header-logo">
+    <h2>Use Help Here ...</h2>
+  </div>
+</header>
+
+
+
+  <!-- Help Content -->
+  <div class="container">
+
+    <div class="card">
+      <h3><i data-lucide="help-circle"></i> How to Use the System</h3>
+      <p>This portal helps students and staff report and recover lost items within the university quickly and securely.</p>
+    </div>
+
+    <div class="card">
+      <h3><i data-lucide="alert-circle"></i> Report Lost Item</h3>
+      <p>If you have lost an item, use the <strong>Report Lost</strong> page to submit its details.</p>
+      <p>Provide a clear description such as the item name, color, where you last saw it, and any unique features. This increases the chances of recovery.</p>
+    </div>
+
+    <div class="card">
+      <h3><i data-lucide="check-circle"></i> Report Found Item</h3>
+      <p>If you find an item that does not belong to you, submit it through the <strong>Report Found</strong> page.</p>
+      <p>Your honesty helps reunite owners with their belongings. Once submitted, the admin reviews and contacts the rightful owner.</p>
+    </div>
+
+    <div class="card">
+      <h3><i data-lucide="search"></i> Search Items</h3>
+      <p>The <strong>Search</strong> page allows users to browse through reported items.</p>
+      <p>If you lost something, always search first before reporting. Many items are often found and uploaded by other users.</p>
+    </div>
+
+    <div class="card">
+      <h3><i data-lucide="info"></i> Additional Tips</h3>
+      <p>• Always use accurate information when submitting reports.</p>
+      <p>• Avoid submitting false reports.</p>
+      <p>• The admin will contact you only if a match is found.</p>
+      <p>• This system is meant to support honesty, responsibility, and community care.</p>
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
+

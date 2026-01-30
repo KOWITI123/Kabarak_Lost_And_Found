@@ -1,0 +1,154 @@
+/* ==========================
+   GOOGLE FONT BASE
+========================== */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #f8fafc;
+  color: #222;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+  background: #8b0000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;  /* centers the text horizontally */
+  width: 100%;         /* ensures it spans the full header width */
+}
+
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+.container {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 0 16px;
+}
+
+/* ==========================
+   WELCOME CARD
+========================== */
+.card {
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  margin-bottom: 30px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #111;
+}
+
+.card p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+}
+
+/* ==========================
+   LINKS & BUTTONS
+========================== */
+.container a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Styled links like buttons */
+.container > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #8b0000;
+  color: #fff;
+  padding: 10px 14px;     /* reduced height */
+  border-radius: 8px;
+  font-size: 14px;        /* slightly smaller text */
+  margin-bottom: 14px;    /* spacing between buttons */
+  transition: all 0.2s ease;
+}
+
+
+.container > a:hover {
+  background: #6f0000;
+  transform: translateY(-1px);
+}
+
+/* Secondary buttons (search & help) */
+.container > a:nth-of-type(3),
+.container > a:nth-of-type(4) {
+  background: #4caf50;
+}
+
+.container > a:nth-of-type(3):hover,
+.container > a:nth-of-type(4):hover {
+  background: #3e9142;
+}
+
+/* ==========================
+   LUCIDE ICONS
+========================== */
+i[data-lucide] {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 480px) {
+  .container {
+    margin-top: 30px;
+  }
+
+  header h2 {
+    font-size: 18px;
+  }
+}
+/* === HEADER WITH LOGO === */
+.top-header {
+  background: #8b0000;
+  padding: 16px 20px;
+}
+
+.header-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-area img {
+  height: 42px;     /* clean size */
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-area h2 {
+  margin: 0;
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+}
+

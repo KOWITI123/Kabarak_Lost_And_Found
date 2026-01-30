@@ -1,49 +1,12 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
-# Virtual Environments
-myenv/
-venv/
-env/
-ENV/
 
-# IDEs
-.vscode/
-.idea/
+# Claude Config Manager Extension - Security Rules
+# Prevents accidental commit of private conversation data
+.claude/.chats/
+.claude/.chats/**
+.claude/settings.local.json
 
-# Spark
-spark-warehouse/
-metastore_db/
-derby.log
-
-# Airflow
-airflow-webserver.pid
-standalone_admin_password.txt
-logs/
-
-# Database Drivers (Large Binaries)
-*.jar
-
-# OS
-.DS_Store
-Thumbs.db
+# Team-sharable Claude Code files (tracked by git):
+# .claude/settings.json     # Team settings (official Claude Code)
+# .claude/commands/         # Team slash commands (official Claude Code)
+# .claude/.plans/           # Project documentation (extension-specific)

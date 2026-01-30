@@ -1,0 +1,129 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #f8fafc;
+  color: #222;
+}
+
+/* Header (UPDATED to match report pages) */
+.top-header {
+  background: #8b0000;
+  padding: 25px 18px;
+}
+
+.header-content {
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+}
+.header-content h2 {
+  text-align: center;
+}
+
+
+.logo-area {
+  display: flex;
+  flex-direction: column;   /* Stack logo and text */
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-area img {
+  height: 90px;            /* Bigger logo like report page */
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-area h2 {
+  margin: 0;
+  font-size: 22px;
+  color: white;
+  font-weight: 700;
+}
+
+/* Layout */
+.container {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 0 16px;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  margin-bottom: 30px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Items (unchanged) */
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.item-card {
+  width: 140px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  background: #fefefe;
+}
+
+.item-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-card p {
+  margin: 5px 0;
+  font-size: 0.85rem;
+}
+
+/* Icons */
+i[data-lucide] {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    margin-top: 30px;
+  }
+
+  .logo-area img {
+    height: 75px;
+  }
+
+  .logo-area h2 {
+    font-size: 18px;
+  }
+}
+
